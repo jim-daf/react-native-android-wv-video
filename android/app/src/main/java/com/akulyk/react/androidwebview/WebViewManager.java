@@ -41,6 +41,7 @@ import com.facebook.react.views.webview.WebViewConfig;
 
 import org.json.JSONObject;
 import org.json.JSONException;
+import android.annotation.SuppressLint;
 
 public class WebViewManager extends SimpleViewManager<WebView> {
 
@@ -214,6 +215,7 @@ public class WebViewManager extends SimpleViewManager<WebView> {
 
             messagingEnabled = enabled;
             if (enabled) {
+                @SuppressLint("AddJavascriptInterface")
                 addJavascriptInterface(createReactWebViewBridge(this), BRIDGE_NAME);
                 linkBridge();
             } else {
